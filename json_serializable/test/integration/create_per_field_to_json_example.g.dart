@@ -45,6 +45,16 @@ abstract class _$ModelPerFieldToJson {
   static Object? nestedExcludeIfNull(Nested? instance) => instance?.toJson();
 }
 
+// ignore: unused_element
+const _$ModelPerFieldToJsonMap = <String, Function>{
+  'firstName': _$ModelPerFieldToJson.firstName,
+  'lastName': _$ModelPerFieldToJson.lastName,
+  'enumValue': _$ModelPerFieldToJson.enumValue,
+  'nested': _$ModelPerFieldToJson.nested,
+  'nestedGeneric': _$ModelPerFieldToJson.nestedGeneric,
+  'nestedExcludeIfNull': _$ModelPerFieldToJson.nestedExcludeIfNull,
+};
+
 Map<String, dynamic> _$ModelToJson(Model instance) {
   final val = <String, dynamic>{
     'firstName': instance.firstName,
@@ -106,6 +116,12 @@ abstract class _$GenericFactoryPerFieldToJson {
       instance.map((k, e) => MapEntry(k, toJsonT(e)));
 }
 
+// ignore: unused_element
+const _$GenericFactoryPerFieldToJsonMap = <String, Function>{
+  'value': _$GenericFactoryPerFieldToJson.value,
+  'map': _$GenericFactoryPerFieldToJson.map,
+};
+
 Map<String, dynamic> _$GenericFactoryToJson<T>(
   GenericFactory<T> instance,
   Object? Function(T value) toJsonT,
@@ -120,6 +136,11 @@ abstract class _$PrivateModelPerFieldToJson {
   // ignore: unused_element
   static Object? fullName(String instance) => instance;
 }
+
+// ignore: unused_element
+const _$PrivateModelPerFieldToJsonMap = <String, Function>{
+  'fullName': _$PrivateModelPerFieldToJson.fullName,
+};
 
 Map<String, dynamic> _$PrivateModelToJson(_PrivateModel instance) =>
     <String, dynamic>{

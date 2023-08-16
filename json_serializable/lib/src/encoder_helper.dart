@@ -17,12 +17,16 @@ mixin EncodeHelper implements HelperCore {
   String _fieldAccess(FieldElement field) => '$_toJsonParamName.${field.name}';
 
   String createPerFieldToJson(Set<FieldElement> accessibleFieldSet) {
-    final buffer = StringBuffer()
+    final perFieldToJson = '_\$${element.name.nonPrivate}PerFieldToJson';
+    final classBuffer = StringBuffer()
       ..writeln('// ignore: unused_element')
-      ..writeln('abstract class _\$${element.name.nonPrivate}PerFieldToJson {');
+      ..writeln('abstract class $perFieldToJson {');
+    final mapBuffer = StringBuffer()
+      ..writeln('// ignore: unused_element')
+      ..writeln('const ${perFieldToJson}Map = <String, Function>{');
 
     for (final field in accessibleFieldSet) {
-      buffer
+      classBuffer
         ..writeln('  // ignore: unused_element')
         ..write(
           'static Object? ${field.name}'
@@ -31,15 +35,20 @@ mixin EncodeHelper implements HelperCore {
         );
 
       if (config.genericArgumentFactories) {
-        _writeGenericArgumentFactories(buffer);
+        _writeGenericArgumentFactories(classBuffer);
       }
 
-      buffer.writeln(') => ${_serializeField(field, _toJsonParamName)};');
+      classBuffer.writeln(') => ${_serializeField(field, _toJsonParamName)};');
+
+      mapBuffer.writeln(
+        '  ${escapeDartString(field.name)}: $perFieldToJson.${field.name},',
+      );
     }
 
-    buffer.writeln('}');
+    classBuffer.writeln('}');
+    mapBuffer.writeln('};');
 
-    return buffer.toString();
+    return '$classBuffer\n\n$mapBuffer';
   }
 
   /// Generates an object containing metadatas related to the encoding,
