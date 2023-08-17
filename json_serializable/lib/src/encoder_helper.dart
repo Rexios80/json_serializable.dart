@@ -23,7 +23,7 @@ mixin EncodeHelper implements HelperCore {
       ..writeln('abstract class $perFieldToJson {');
     final mapBuffer = StringBuffer()
       ..writeln('// ignore: unused_element')
-      ..writeln('const ${perFieldToJson}Map = <String, Function>{');
+      ..writeln('const ${perFieldToJson}FieldMap = <String, Function>{');
 
     for (final field in accessibleFieldSet) {
       classBuffer

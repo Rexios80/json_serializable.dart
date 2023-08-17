@@ -46,7 +46,7 @@ abstract class _$ModelPerFieldToJson {
 }
 
 // ignore: unused_element
-const _$ModelPerFieldToJsonMap = <String, Function>{
+const _$ModelPerFieldToJsonFieldMap = <String, Function>{
   'firstName': _$ModelPerFieldToJson.firstName,
   'lastName': _$ModelPerFieldToJson.lastName,
   'enumValue': _$ModelPerFieldToJson.enumValue,
@@ -117,7 +117,7 @@ abstract class _$GenericFactoryPerFieldToJson {
 }
 
 // ignore: unused_element
-const _$GenericFactoryPerFieldToJsonMap = <String, Function>{
+const _$GenericFactoryPerFieldToJsonFieldMap = <String, Function>{
   'value': _$GenericFactoryPerFieldToJson.value,
   'map': _$GenericFactoryPerFieldToJson.map,
 };
@@ -138,7 +138,7 @@ abstract class _$PrivateModelPerFieldToJson {
 }
 
 // ignore: unused_element
-const _$PrivateModelPerFieldToJsonMap = <String, Function>{
+const _$PrivateModelPerFieldToJsonFieldMap = <String, Function>{
   'fullName': _$PrivateModelPerFieldToJson.fullName,
 };
 
